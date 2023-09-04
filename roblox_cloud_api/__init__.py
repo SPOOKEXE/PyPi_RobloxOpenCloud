@@ -1,12 +1,21 @@
-from .structs import (
+from .common import (
 	ASSET_TYPES,
-	ASSET_INSTANCE,
-	API_KEY_PROTOCOL,
-	USER_ACCOUNT_PROTOCOL
+	ASSET_FILE,
+	API_KEY,
+	USER_ACCOUNT
+)
+
+from .common import rbxmk_executable_path
+
+from .common import (
+	RobloxXML,
+	XMLFile
 )
 
 from .key_api import KeyAPI
-from .open_cloud import OpenCloudAPI
 from .user_api import UserAPI
-from .assets import AssetsAPI
-from .rbxmk import rbxmk_executable_path
+from .assets_api import (
+	AssetFileAPI, AssetsDeliveryAPI
+)
+
+from .open_cloud import OpenCloudAPI

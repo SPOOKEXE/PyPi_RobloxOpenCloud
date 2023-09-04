@@ -5,14 +5,17 @@ from functools import (
 	cache
 )
 
-from .structs import (
+from .common import (
 	ASSET_TYPES,
 	OPERATION_STATUS,
-	ASSET_INSTANCE,
-	API_KEY_PROTOCOL,
-	USER_ACCOUNT_PROTOCOL,
+	ASSET_FILE,
+	API_KEY,
+	USER_ACCOUNT,
 	API_URLS
 )
 
 class UserAPI:
-	pass
+
+	@staticmethod
+	def is_user_account_valid( account : USER_ACCOUNT ) -> bool:
+		pass # TODO

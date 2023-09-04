@@ -1,3 +1,7 @@
+'''
+rbxmk application wrapper, coded by Anaminus as is available at:
+https://github.com/Anaminus/rbxmk
+'''
 
 import platform
 import sys
@@ -20,6 +24,18 @@ RBXMK_URLS = {
 
 	"rbxmk_macOS" : f"https://github.com/Anaminus/rbxmk/releases/download/v{RBXMK_VERSION}/rbxmk-v{RBXMK_VERSION}-darwin-amd64.zip"
 }
+
+@cache
+def determine_rbxmk_platform() -> str | None:
+	p = platform.system()
+	is_64bits = sys.maxsize > (2**32)
+	if p == "Linux": # Linux
+		return is_64bits and "rbxmk_linux_x64" or "rbxmk_linux_x32"
+	elif p == "Darwin": # MacOS
+		return "rbxmk_macOS"
+	elif p == "Windows": # Windows
+		return (is_64bits and "rbxmk_windows_x64" or "rbxmk_windows_x32") + ".exe"
+	return None
 
 def download_rbxmk( file_url : str, filepath : str ) -> bool:
 	url_filename = os.path.basename(file_url)
@@ -50,27 +66,18 @@ def download_rbxmk( file_url : str, filepath : str ) -> bool:
 	print("Successfully downloaded and extracted - continuing.")
 	return True
 
-@cache
-def determine_rbxmk_platform() -> str | None:
-	p = platform.system()
-	is_64bits = sys.maxsize > (2**32)
-	if p == "Linux": # Linux
-		return is_64bits and "rbxmk_linux_x64" or "rbxmk_linux_x32"
-	elif p == "Darwin": # MacOS
-		return "rbxmk_macOS"
-	elif p == "Windows": # Windows
-		return (is_64bits and "rbxmk_windows_x64" or "rbxmk_windows_x32") + ".exe"
-	return None
-
 def rbxmk_executable_path() -> str:
 	filename = determine_rbxmk_platform()
 	if filename == None:
 		raise Exception("Unknown Platform - cannot run rbxmk. Supported platforms are Windows, MacOS, and Linux (x32 and x64).")
+
 	filepath = os.path.join( FILE_DIRECTORY, filename )
-	if not os.path.exists( filepath ):
-		print("rbxmk application was not found, downloading it from the rbxmk github.")
-		if not filename in RBXMK_URLS.keys():
-			raise Exception("Unknown Executable - cannot find the download url to the executable.")
-		if not download_rbxmk( RBXMK_URLS[filename], filepath ):
-			raise Exception("Download Failed - could not download the rbxmk application.")
+	if os.path.exists( filepath ):
+		return filepath
+
+	print("rbxmk application was not found, downloading it from the rbxmk github.")
+	if not filename in RBXMK_URLS.keys():
+		raise Exception("Unknown Executable - cannot find the download url to the executable.")
+	if not download_rbxmk( RBXMK_URLS[filename], filepath ):
+		raise Exception("Download Failed - could not download the rbxmk application.")
 	return filepath
