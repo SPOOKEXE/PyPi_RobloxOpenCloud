@@ -14,5 +14,5 @@ from .structs import (
 	API_URLS
 )
 
-class OpenCloudAPI:
+class AssetsAPI:
 	pass

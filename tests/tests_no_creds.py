@@ -7,6 +7,7 @@ ENABLE_VSCODE_MODE = True
 
 import pytest
 
+from os import system
 from os import path as os_path
 from sys import path as sys_path
 
@@ -24,6 +25,10 @@ if ENABLE_VSCODE_MODE:
 def test_running( ) -> None:
 	print('pytest is working.')
 
-def test_1( ) -> None:
-	asset = roblox_cloud_api.ASSET_INSTANCE("Hello!", roblox_cloud_api.ASSET_TYPES.Model, "C:")
-	print(asset)
+def test_for_rbxmk_version( ) -> None:
+	rbxmk_filepath = roblox_cloud_api.rbxmk_executable_path()
+	print('Running rbxmk with version: ')
+	system( rbxmk_filepath + ' version' )
+
+if __name__ == '__main__':
+	test_for_rbxmk_version( )

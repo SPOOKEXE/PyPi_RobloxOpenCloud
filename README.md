@@ -50,6 +50,24 @@ https://create.roblox.com/docs/cloud/webhooks/webhook-notifications
 
 ## Credits
 
-**Developed by SPOOK_EXE**  
+**Package by SPOOK_EXE**  
 https://github.com/SPOOKEXE  
 https://www.roblox.com/users/1041213550/profile  
+
+**Anamius - 'rbxmk' for parsing roblox files**  
+https://github.com/Anaminus/rbxmk
+
+## TODO
+- rbxml parser
+- rbxmx parser
+>
+- Asset Delivery API
+- Decal ID to Image ID API
+- Mesh Model to Mesh ID API
+>
+- Open Cloud Messaging API
+- Open Cloud Datastore API
+- Open Cloud Place Publishing API
+>
+- Open Cloud Operation IDs API
+- Open Cloud Asset Upload API

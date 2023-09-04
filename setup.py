@@ -4,7 +4,7 @@ from os import path as os_path
 
 FILE_DIRECTORY = os_path.abspath(os_path.dirname(__file__))
 
-VERSION = "0.0.8"
+VERSION = "0.0.9"
 
 with open( os_path.join(FILE_DIRECTORY, "README.md"), "r") as f:
 	long_description = f.read()
@@ -28,6 +28,6 @@ setup(
 		#"Operating System :: MacOS :: MacOS X",
 	],
 	keywords=['roblox', 'open-cloud', 'roblox open cloud', 'open cloud', 'opencloud', 'roblox opencloud'],
-	install_requires=['requests', 'twine', 'pytest'],
+	install_requires=['requests', 'pytest'],
 	python_requires=">=3.10"
 )
