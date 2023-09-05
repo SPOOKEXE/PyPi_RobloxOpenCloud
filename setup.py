@@ -22,12 +22,12 @@ setup(
 	classifiers=[
 		"License :: OSI Approved :: MIT License",
 		"Intended Audience :: Developers",
-		"Programming Language :: Python :: 3.10",
+		"Programming Language :: Python :: 3 :: Only",
 		"Operating System :: Microsoft :: Windows",
-		#"Operating System :: Unix",
-		#"Operating System :: MacOS :: MacOS X",
+		"Operating System :: Unix",
+		"Operating System :: MacOS :: MacOS X",
+		"Development Status :: 2 - Pre-Alpha"
 	],
 	keywords=['roblox', 'open-cloud', 'roblox open cloud', 'open cloud', 'roblox opencloud'],
-	install_requires=['requests', 'pytest'],
-	python_requires=">=3.10"
+	install_requires=['requests', 'pytest']
 )

@@ -148,4 +148,5 @@ https://github.com/Anaminus/rbxmk
 
 ## Additional Documentation
 
-[View Here @ docs/docs.md](docs/docs.md)
+[View Here (Local)](docs/docs.md)
+[View Here (GitHub)](https://github.com/SPOOKEXE/PyPi_RobloxOpenCloud/blob/main/docs/docs.md)

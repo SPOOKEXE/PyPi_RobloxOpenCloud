@@ -157,3 +157,4 @@ creds.txt
 *.dot
 *.png
 quick_test.py
+.pypirc

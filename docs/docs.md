@@ -17,18 +17,6 @@
 
 ## **VERSION CHANGELOG**
 
-### Version 0.0.11
-
-### Implemented:
-
-- 
-
-### Fixes:
-
-- documentation: accidently used 'api_key' instead of 'user account' wording at bottom of README.md.
-
-------
-
 ### Version 0.0.10
 
 0.0.10 is the first version to be documented as it has all the project structre completed and all the sample functions in place for future versions.
