@@ -1,6 +1,7 @@
 
 from .structs import (
-	API_KEY, API_URLS, ASSET_FILE, ASSET_TYPES, OPERATION_STATUS, USER_ACCOUNT
+	API_KEY, API_URLS, ASSET_FILE, ASSET_TYPES,
+	OPERATION_STATUS, USER_ACCOUNT
 )
 
 from .utility import (
@@ -13,4 +14,8 @@ from .rbxmk import (
 
 from .rbxml import (
 	RobloxXML, XMLFile, WHITELISED_XML_INDEXES
+)
+
+from .request import (
+	_RequestWrapper
 )

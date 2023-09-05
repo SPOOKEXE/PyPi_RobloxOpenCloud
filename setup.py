@@ -15,7 +15,7 @@ setup(
 	description="Roblox API for cloud and assets.",
 	long_description=long_description,
 	long_description_content_type="text/markdown",
-	packages=['roblox_cloud_api', 'tests'],
+	packages=['roblox_cloud_api'],
 	url="https://github.com/SPOOKEXE/PyPi_RobloxOpenCloud",
 	author="SPOOK_EXE (Declan)",
 	license="MIT",

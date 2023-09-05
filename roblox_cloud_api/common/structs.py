@@ -2,14 +2,18 @@
 from typing import Protocol
 from enum import Enum
 from attr import dataclass
+from requests import Response
 
 from .utility import get_blurred_value
 
 '''
 URLs that are utilized in the package
 '''
-class API_URLS(Enum):
-	pass
+class API_URLS:
+
+	MESSAGING_SERVICE_API = "https://apis.roblox.com/messaging-service/v1/universes/{}/topics/{}"
+	CLOUD_API_KEY_URL = 'https://apis.roblox.com/cloud-authentication/v1/apiKey'
+	ACCOUNT_AUTHENTICATED_URL = 'https://users.roblox.com/v1/users/authenticated'
 
 '''
 Asset types that are supported
@@ -48,25 +52,21 @@ class ASSET_FILE:
 '''
 API Key Protocol for the package to utilize throughout the codebase
 '''
-class API_KEY(Protocol):
-	def get_api_key( self ) -> str:
-		...
+@dataclass
+class API_KEY:
+	api_key : str = None
+	creator_id : str = None
 
-	def get_creator_id( self ) -> str:
-		...
-	
 	def __str__(self) -> str:
-		return f"API_KEY({ self.get_creator_id() }, { get_blurred_value(self.get_api_key()) })"
+		return f"API_KEY({ self.creator_id }, { get_blurred_value(self.api_key) })"
 
 '''
 User Account Protocol for the package to utilize throughout the codebase
 '''
-class USER_ACCOUNT(Protocol):
-	def get_roblox_cookie( self ) -> str:
-		...
-
-	def get_user_id( self ) -> str:
-		...
+@dataclass
+class USER_ACCOUNT:
+	cookie : str = None
+	user_id : str = None
 
 	def __str__(self) -> str:
-		return f"USER_ACCOUNT({ self.get_user_id() }, { get_blurred_value(self.get_roblox_cookie()) })"
+		return f"USER_ACCOUNT({ self.user_id }, { get_blurred_value(self.cookie) })"
