@@ -154,4 +154,6 @@ cython_debug/
 temp/
 creds.txt
 *.exe
+*.dot
+*.png
 quick_test.py

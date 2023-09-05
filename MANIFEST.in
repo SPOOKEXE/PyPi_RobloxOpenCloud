@@ -1,0 +1,4 @@
+include tests/*.bat
+include tests/*.py
+include scripts/*.bat
+include docs/*

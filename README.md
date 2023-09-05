@@ -100,18 +100,18 @@ except Exception as e:
 if not is_account_valid:
 	raise Exception(f"User Account is invalid.")
 
-# now the account has been validated, we can do stuff with it.
+# now the user account has been validated, we can do stuff with it.
 
 # request to the MessagingService api and post a message
 # raises an Exception if failed
 try:
 	OpenCloudAPI.MessagingService.publish_async(
-		account, # api_key
+		account, # user account
 		000000, # universe id
 		"topic", # topic
 		"message" # message
 	)
-	print("Published message using API Key!")
+	print("Published message using User Account!")
 except Exception as e:
 	print("Failed MessagingService message publish!")
 	print(e) # tells us the reason (Exceptions are raised based on webpoint responses.)
@@ -146,18 +146,6 @@ https://www.roblox.com/users/1041213550/profile
 **Anamius - 'rbxmk' for parsing roblox files**  
 https://github.com/Anaminus/rbxmk
 
-## TODO
-- Asset File API
-- Asset Delivery API
-- Decal ID to Image ID API
-- Mesh Model to Mesh ID API
->
-- Open Cloud Messaging API
-- Open Cloud Datastore API
-- Open Cloud Place Publishing API
->
-- Open Cloud Operation IDs API
-- Open Cloud Asset Upload API
->
-- Update README.md with examples
-- Update tests to cover each API (if possible)
+## Additional Documentation
+
+[View Here @ docs/docs.md](docs/docs.md)
