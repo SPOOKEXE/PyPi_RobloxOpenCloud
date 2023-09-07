@@ -16,6 +16,9 @@ from .common import (
 )
 
 class UserAPI:
+	'''
+	API Relating to User Accounts
+	'''
 
 	@staticmethod
 	def get_user_id_from_cookie( cookie : str ) -> int:

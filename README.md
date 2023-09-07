@@ -68,7 +68,7 @@ if not is_key_valid:
 # request to the MessagingService api and post a message
 # raises an Exception if failed
 try:
-	OpenCloudAPI.MessagingService.publish_async(
+	OpenCloudAPI.MessagingService.publish(
 		api_key, # api_key
 		000000, # universe id
 		"topic", # topic
@@ -105,7 +105,7 @@ if not is_account_valid:
 # request to the MessagingService api and post a message
 # raises an Exception if failed
 try:
-	OpenCloudAPI.MessagingService.publish_async(
+	OpenCloudAPI.MessagingService.publish(
 		account, # user account
 		000000, # universe id
 		"topic", # topic

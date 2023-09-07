@@ -2,7 +2,7 @@
 from typing import Protocol
 from enum import Enum
 from attr import dataclass
-from requests import Response
+from requests import Response, Session
 
 from .utility import get_blurred_value
 
@@ -11,9 +11,13 @@ URLs that are utilized in the package
 '''
 class API_URLS:
 
-	MESSAGING_SERVICE_API = "https://apis.roblox.com/messaging-service/v1/universes/{}/topics/{}"
+	MESSAGING_SERVICE_API = 'https://apis.roblox.com/messaging-service/v1/universes/{}/topics/{}'
 	CLOUD_API_KEY_URL = 'https://apis.roblox.com/cloud-authentication/v1/apiKey'
 	ACCOUNT_AUTHENTICATED_URL = 'https://users.roblox.com/v1/users/authenticated'
+	UNIVERSE_VERSIONS_API = 'https://apis.roblox.com/universes/v1/{}/places/{}/versions'
+	STANDARD_DATASTORE_URL = 'https://apis.roblox.com/datastores/v1/universes/{}/standard-datastores'
+	OPERATIONS_STATUS_API = "https://apis.roblox.com/assets/v1/operations/{}"
+
 
 '''
 Asset types that are supported
@@ -57,6 +61,9 @@ class API_KEY:
 	api_key : str = None
 	creator_id : str = None
 
+	def append_auth( self, session : Session ) -> None:
+		session.headers["x-api-key"] = self.api_key
+
 	def __str__(self) -> str:
 		return f"API_KEY({ self.creator_id }, { get_blurred_value(self.api_key) })"
 
@@ -67,6 +74,9 @@ User Account Protocol for the package to utilize throughout the codebase
 class USER_ACCOUNT:
 	cookie : str = None
 	user_id : str = None
+
+	def append_auth( self, session : Session ) -> None:
+		session.cookies.set('.ROBLOSECURITY', self.cookie)
 
 	def __str__(self) -> str:
 		return f"USER_ACCOUNT({ self.user_id }, { get_blurred_value(self.cookie) })"

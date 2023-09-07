@@ -16,6 +16,9 @@ from .common import (
 )
 
 class KeyAPI:
+	'''
+	API relating to API Keys
+	'''
 
 	@staticmethod
 	def is_api_key_valid( api_key : API_KEY ) -> bool:

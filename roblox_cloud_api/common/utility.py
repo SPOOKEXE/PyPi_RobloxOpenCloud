@@ -1,5 +1,8 @@
 import json
 import os
+from typing import Callable
+
+from requests import Session
 
 '''
 Returns the passed value except only the first n characters are

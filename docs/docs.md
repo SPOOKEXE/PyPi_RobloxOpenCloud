@@ -5,7 +5,6 @@
 - Mesh Model to Mesh ID API
 >
 - Open Cloud Datastore API
-- Open Cloud Place Publishing API
 >
 - Open Cloud Operation IDs API
 - Open Cloud Asset Upload API
@@ -16,6 +15,24 @@
 
 
 ## **VERSION CHANGELOG**
+
+### Version 0.0.11
+
+### Removed:
+
+- removed 'credential' tests as they were pointless.
+
+### Implemented:
+
+- Place Publishing API
+- Internal working changes
+
+### Fixes:
+
+- docs: typo at bottom of README.md.
+- docs: corrected links at very bottom of README.
+
+------
 
 ### Version 0.0.10
 

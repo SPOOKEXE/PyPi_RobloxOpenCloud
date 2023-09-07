@@ -66,6 +66,7 @@ def download_rbxmk( file_url : str, filepath : str ) -> bool:
 	print("Successfully downloaded and extracted - continuing.")
 	return True
 
+@cache
 def rbxmk_executable_path() -> str:
 	filename = determine_rbxmk_platform()
 	if filename == None:
